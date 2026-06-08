@@ -167,6 +167,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- PRICING MONTHLY/YEARLY TOGGLE ---
+  const toggleBtn = document.getElementById('pricing-toggle-btn');
+  const monthlyLabel = document.getElementById('toggle-monthly');
+  const yearlyLabel = document.getElementById('toggle-yearly');
+  const pricePro = document.getElementById('price-pro');
+  const priceTeam = document.getElementById('price-team');
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const isYearly = toggleBtn.classList.toggle('yearly');
+      if (isYearly) {
+        monthlyLabel.classList.remove('active');
+        yearlyLabel.classList.add('active');
+        pricePro.innerHTML = '¥54 <span>/ 月 (按年计费)</span>';
+        priceTeam.innerHTML = '¥158 <span>/ 月 (按年计费)</span>';
+      } else {
+        monthlyLabel.classList.add('active');
+        yearlyLabel.classList.remove('active');
+        pricePro.innerHTML = '¥68 <span>/ 月</span>';
+        priceTeam.innerHTML = '¥198 <span>/ 月</span>';
+      }
+    });
+  }
+
   // --- MOCK SUPPORT FORM SUBMISSION ---
   const supportForm = document.getElementById('support-form');
   const successMsg = document.getElementById('form-success');

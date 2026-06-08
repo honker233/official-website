@@ -227,6 +227,14 @@
         <p class="section-desc">解锁更高的 Token 额度、优先的响应通道以及针对您个人工作流定制的知识模型。</p>
       </div>
 
+      <div class="pricing-toggle-container reveal">
+        <span class="toggle-label active" id="toggle-monthly">按月计费</span>
+        <button class="pricing-toggle-btn" id="pricing-toggle-btn" aria-label="切换计费周期">
+          <span class="pricing-toggle-slider"></span>
+        </button>
+        <span class="toggle-label" id="toggle-yearly">按年计费 <span class="discount-badge">省 20%</span></span>
+      </div>
+
       <div class="pricing-grid">
         <!-- 方案 1 -->
         <div class="pricing-card reveal">
@@ -250,7 +258,7 @@
           <span class="popular-badge">最受欢迎</span>
           <div class="price-header">
             <h3 class="price-name">云枢 专业版</h3>
-            <div class="price-cost">¥68 <span>/ 月</span></div>
+            <div class="price-cost" id="price-pro">¥68 <span>/ 月</span></div>
             <p class="price-desc">完美适合创意创作者、开发者与职场精英。</p>
           </div>
           <ul class="price-features">
@@ -267,7 +275,7 @@
         <div class="pricing-card reveal delay-200">
           <div class="price-header">
             <h3 class="price-name">云枢 团队版</h3>
-            <div class="price-cost">¥198 <span>/ 月</span></div>
+            <div class="price-cost" id="price-team">¥198 <span>/ 月</span></div>
             <p class="price-desc">为设计小组、技术团队与成长型企业打造。</p>
           </div>
           <ul class="price-features">
