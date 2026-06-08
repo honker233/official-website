@@ -196,4 +196,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1200);
     });
   }
+
+  // --- SCROLL PROGRESS INDICATOR ---
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (height > 0) {
+      const scrolled = (winScroll / height) * 100;
+      if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+      }
+    }
+  });
+
+  // --- SCROLL REVEAL OBSERVER ---
+  const revealElements = document.querySelectorAll('.reveal');
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
+  });
 });
